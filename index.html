@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caffeine Tracker</title>
+    <script src="https://unpkg.com/htmx.org@2.0.0"
+        integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="">
+    <form hx-post="/calc-decay/" hx-target="#decayed-dose" hx-swap="beforeend">
+        <div class="mb-3">
+            <label for="dose">Dose</label>
+            <input type="text" name="dose-thing" id="dose" class="" />
+        </div>
+    
+        <button type="submit" class="">
+            <span class="" id="spinner" role="status"
+                aria-hidden="true"></span>
+            Calculate
+        </button>
+    </form>
+
+    <div id="decayed-dose">
+        {{ block "decayed-dose" .}}
+        {{ end }}
+    </div>
+</body>
+
+</html>
